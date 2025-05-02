@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmulas de Integración</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f8fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #1e88e5;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            border-bottom: 2px solid #1e88e5;
+            padding-bottom: 10px;
+        }
+        
+        .formula-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .formula-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #1e88e5;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .formula-item:hover {
+            background-color: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .formula-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .formula {
+            font-size: 1.1em;
+            display: inline;
+        }
+        
+        .multiline-formula {
+            display: block;
+            margin-top: 5px;
+            margin-left: 45px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .formula {
+                font-size: 1em;
+            }
+            
+            .formula-number {
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fórmulas Básicas de Integración</h1>
+        
+        <ol class="formula-list">
+            <li class="formula-item">
+                <span class="formula-number">1</span>
+                <span class="formula">∫ k dx = kx + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">2</span>
+                <span class="formula">∫ x<sup>n</sup> dx = 
+                <span class="fraction">
+                    <span class="numerator">x<sup>n+1</sup></span>
+                    <span class="denominator">n+1</span>
+                </span> + C, n ≠ -1</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">3</span>
+                <span class="formula">∫ 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">x</span>
+                </span> dx = ln|x| + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">4</span>
+                <span class="formula">∫ e<sup>x</sup> dx = e<sup>x</sup> + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">5</span>
+                <span class="formula">∫ a<sup>x</sup> dx = 
+                <span class="fraction">
+                    <span class="numerator">a<sup>x</sup></span>
+                    <span class="denominator">ln a</span>
+                </span> + C, a > 0 ∧ a ≠ 1</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">6</span>
+                <span class="formula">∫ sin x dx = -cos x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">7</span>
+                <span class="formula">∫ cos x dx = sin x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">8</span>
+                <span class="formula">∫ sec<sup>2</sup> x dx = tan x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">9</span>
+                <span class="formula">∫ csc<sup>2</sup> x dx = -cot x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">10</span>
+                <span class="formula">∫ sec x tan x dx = sec x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">11</span>
+                <span class="formula">∫ csc x cot x dx = -csc x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">12</span>
+                <span class="formula">∫ tan x dx = -ln|cos x| + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">13</span>
+                <span class="formula">∫ cot x dx = ln|sin x| + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">14</span>
+                <span class="formula">∫ csc x dx = ln|csc x - cot x| + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">15</span>
+                <span class="formula">∫ sec x dx = ln|sec x + tan x| + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">16</span>
+                <span class="formula">∫ sinh x dx = cosh x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">17</span>
+                <span class="formula">∫ cosh x dx = sinh x + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">18</span>
+                <span class="formula">∫ 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">√(a²-x²)</span>
+                </span> dx = sin<sup>-1</sup>(x/a) + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">19</span>
+                <span class="formula">∫ 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">a²+x²</span>
+                </span> dx = 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">a</span>
+                </span> tan<sup>-1</sup>(x/a) + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">20</span>
+                <span class="formula">∫ 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">x√(x²-a²)</span>
+                </span> dx = 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">a</span>
+                </span> sec<sup>-1</sup>|x/a| + C</span>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">21</span>
+                <div class="formula">∫ 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">√(a²+x²)</span>
+                </span> dx = ln|x + √(a²+x²)| + C</div>
+                <div class="multiline-formula">= sinh<sup>-1</sup>(x/a) + C, a > 0</div>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">22</span>
+                <div class="formula">∫ 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">√(x²-a²)</span>
+                </span> dx = ln|x + √(x²-a²)| + C</div>
+                <div class="multiline-formula">= cosh<sup>-1</sup>(x/a) + C, a > 0</div>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">23</span>
+                <div class="formula">∫ 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">x²-a²</span>
+                </span> dx = 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">2a</span>
+                </span> ln
+                <span class="fraction">
+                    <span class="numerator">|x-a|</span>
+                    <span class="denominator">|x+a|</span>
+                </span> + C, a > 0</div>
+            </li>
+            
+            <li class="formula-item">
+                <span class="formula-number">24</span>
+                <div class="formula">∫ f(ax + b) dx = 
+                <span class="fraction">
+                    <span class="numerator">1</span>
+                    <span class="denominator">a</span>
+                </span> ∫ f(u) du</div>
+                <div class="multiline-formula">donde u = ax + b y a ≠ 0</div>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
