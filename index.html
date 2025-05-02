@@ -3,278 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórmulas de Integración</title>
+    <title>Fórmulas de Integración al Estilo LaTeX</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f8fa;
-            color: #333;
+            font-family: "Latin Modern Roman", "Times New Roman", serif;
+            background-color: #F9F9F9;
+            color: #222;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
+            font-size: 14pt;
         }
         
-        .container {
+        .latex-container {
             max-width: 800px;
             margin: 0 auto;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border: 1px solid #DDD;
         }
         
         h1 {
-            color: #1e88e5;
             text-align: center;
+            color: #333;
+            font-weight: bold;
+            font-size: 24pt;
             margin-bottom: 30px;
-            font-size: 2.2em;
-            border-bottom: 2px solid #1e88e5;
+            border-bottom: 2px solid #333;
             padding-bottom: 10px;
         }
         
         .formula-list {
             list-style-type: none;
             padding: 0;
+            counter-reset: formula-counter;
         }
         
         .formula-item {
-            margin-bottom: 15px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #1e88e5;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 50px;
+            page-break-inside: avoid;
         }
         
-        .formula-item:hover {
-            background-color: #e3f2fd;
-            transform: translateX(5px);
-        }
-        
-        .formula-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background-color: #1e88e5;
-            color: white;
-            text-align: center;
-            line-height: 30px;
-            border-radius: 50%;
-            margin-right: 15px;
+        .formula-item:before {
+            counter-increment: formula-counter;
+            content: counter(formula-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
             font-weight: bold;
+            color: #333;
+            font-size: 14pt;
         }
         
         .formula {
-            font-size: 1.1em;
-            display: inline;
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #F5F5F5;
+            overflow-x: auto;
         }
         
-        .multiline-formula {
+        .formula-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .multiline {
             display: block;
+            margin-left: 20px;
             margin-top: 5px;
-            margin-left: 45px;
         }
         
         @media (max-width: 600px) {
-            .container {
-                padding: 15px;
+            body {
+                font-size: 12pt;
+                padding: 10px;
             }
             
-            .formula {
-                font-size: 1em;
+            .latex-container {
+                padding: 20px;
             }
             
-            .formula-number {
-                width: 25px;
-                height: 25px;
-                line-height: 25px;
-                margin-right: 10px;
+            .formula-item {
+                padding-left: 40px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="latex-container">
         <h1>Fórmulas Básicas de Integración</h1>
         
         <ol class="formula-list">
             <li class="formula-item">
-                <span class="formula-number">1</span>
-                <span class="formula">∫ k dx = kx + C</span>
+                <div class="formula">\[ \int k\,dx = kx + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">2</span>
-                <span class="formula">∫ x<sup>n</sup> dx = 
-                <span class="fraction">
-                    <span class="numerator">x<sup>n+1</sup></span>
-                    <span class="denominator">n+1</span>
-                </span> + C, n ≠ -1</span>
+                <div class="formula">\[ \int x^n\,dx = \frac{x^{n+1}}{n+1} + C, \quad n \ne -1 \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">3</span>
-                <span class="formula">∫ 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">x</span>
-                </span> dx = ln|x| + C</span>
+                <div class="formula">\[ \int \frac{dx}{x} = \ln \left| x \right| + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">4</span>
-                <span class="formula">∫ e<sup>x</sup> dx = e<sup>x</sup> + C</span>
+                <div class="formula">\[ \int e^x\,dx = e^x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">5</span>
-                <span class="formula">∫ a<sup>x</sup> dx = 
-                <span class="fraction">
-                    <span class="numerator">a<sup>x</sup></span>
-                    <span class="denominator">ln a</span>
-                </span> + C, a > 0 ∧ a ≠ 1</span>
+                <div class="formula">\[ \int a^x\,dx = \frac{a^x}{\ln a} + C, \quad a>0 \wedge a \ne 1 \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">6</span>
-                <span class="formula">∫ sin x dx = -cos x + C</span>
+                <div class="formula">\[ \int \sin x\,dx = -\cos x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">7</span>
-                <span class="formula">∫ cos x dx = sin x + C</span>
+                <div class="formula">\[ \int \cos x\,dx = \sin x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">8</span>
-                <span class="formula">∫ sec<sup>2</sup> x dx = tan x + C</span>
+                <div class="formula">\[ \int \sec^2 x\,dx = \tan x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">9</span>
-                <span class="formula">∫ csc<sup>2</sup> x dx = -cot x + C</span>
+                <div class="formula">\[ \int \csc^2 x\,dx = -\cot x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">10</span>
-                <span class="formula">∫ sec x tan x dx = sec x + C</span>
+                <div class="formula">\[ \int \sec x \tan x \,dx = \sec x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">11</span>
-                <span class="formula">∫ csc x cot x dx = -csc x + C</span>
+                <div class="formula">\[ \int \csc x \cot x\,dx = -\csc x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">12</span>
-                <span class="formula">∫ tan x dx = -ln|cos x| + C</span>
+                <div class="formula">\[ \int \tan x \,dx = -\ln \left| \cos x \right| + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">13</span>
-                <span class="formula">∫ cot x dx = ln|sin x| + C</span>
+                <div class="formula">\[ \int \cot x\, dx = \ln\left|\sin x \right| + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">14</span>
-                <span class="formula">∫ csc x dx = ln|csc x - cot x| + C</span>
+                <div class="formula">\[ \int \csc x\, dx = \ln\left|\csc x - \cot x \right| + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">15</span>
-                <span class="formula">∫ sec x dx = ln|sec x + tan x| + C</span>
+                <div class="formula">\[ \int \sec x \,dx = \ln\left|\sec x + \tan x \right| + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">16</span>
-                <span class="formula">∫ sinh x dx = cosh x + C</span>
+                <div class="formula">\[ \int \sinh x \,dx = \cosh x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">17</span>
-                <span class="formula">∫ cosh x dx = sinh x + C</span>
+                <div class="formula">\[ \int \cosh x\, dx = \sinh x + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">18</span>
-                <span class="formula">∫ 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">√(a²-x²)</span>
-                </span> dx = sin<sup>-1</sup>(x/a) + C</span>
+                <div class="formula">\[ \int \frac{dx}{\sqrt{a^2-x^2}} = \sin^{-1}\left(\frac{x}{a}\right) + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">19</span>
-                <span class="formula">∫ 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">a²+x²</span>
-                </span> dx = 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">a</span>
-                </span> tan<sup>-1</sup>(x/a) + C</span>
+                <div class="formula">\[ \int \frac{dx}{a^2+x^2} = \frac{1}{a}\tan^{-1}\left(\frac{x}{a}\right) + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">20</span>
-                <span class="formula">∫ 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">x√(x²-a²)</span>
-                </span> dx = 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">a</span>
-                </span> sec<sup>-1</sup>|x/a| + C</span>
+                <div class="formula">\[ \int \frac{dx}{x\sqrt{x^2-a^2}} = \frac{1}{a}\sec^{-1}\left| \frac{x}{a}\right| + C \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">21</span>
-                <div class="formula">∫ 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">√(a²+x²)</span>
-                </span> dx = ln|x + √(a²+x²)| + C</div>
-                <div class="multiline-formula">= sinh<sup>-1</sup>(x/a) + C, a > 0</div>
+                <div class="formula">\[ \int \frac{dx}{\sqrt{a^2+x^2}} = \ln\left|x+\sqrt{a^2+x^2} \right| + C \]</div>
+                <div class="formula multiline">\[ = \sinh^{-1}\left(\frac{x}{a}\right) + C, \quad a>0 \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">22</span>
-                <div class="formula">∫ 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">√(x²-a²)</span>
-                </span> dx = ln|x + √(x²-a²)| + C</div>
-                <div class="multiline-formula">= cosh<sup>-1</sup>(x/a) + C, a > 0</div>
+                <div class="formula">\[ \int \frac{dx}{\sqrt{x^2-a^2}} = \ln\left|x+\sqrt{x^2-a^2} \right| + C \]</div>
+                <div class="formula multiline">\[ = \cosh^{-1}\left(\frac{x}{a}\right) + C, \quad a>0 \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">23</span>
-                <div class="formula">∫ 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">x²-a²</span>
-                </span> dx = 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">2a</span>
-                </span> ln
-                <span class="fraction">
-                    <span class="numerator">|x-a|</span>
-                    <span class="denominator">|x+a|</span>
-                </span> + C, a > 0</div>
+                <div class="formula">\[ \int \frac{dx}{x^2-a^2} = \frac{1}{2a}\ln\left|\frac{x-a}{x+a} \right| + C, \quad a>0 \]</div>
             </li>
             
             <li class="formula-item">
-                <span class="formula-number">24</span>
-                <div class="formula">∫ f(ax + b) dx = 
-                <span class="fraction">
-                    <span class="numerator">1</span>
-                    <span class="denominator">a</span>
-                </span> ∫ f(u) du</div>
-                <div class="multiline-formula">donde u = ax + b y a ≠ 0</div>
+                <div class="formula">\[ \int f(ax+b)\, dx = \frac{1}{a} \int f(u) \,du \]</div>
+                <div class="formula multiline">\[ \text{con } u=ax+b \wedge a\ne 0 \]</div>
             </li>
         </ol>
     </div>
